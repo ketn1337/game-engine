@@ -1,4 +1,4 @@
-﻿namespace tasks;
+﻿namespace engine;
 
 public class Vector
 {
@@ -21,9 +21,10 @@ public class Vector
     
     public void Norm()
     {
-        _c1 /= Length;
-        _c2 /= Length;
-        _c3 /= Length;
+        var len = Length;
+        _c1 /= len;
+        _c2 /= len;
+        _c3 /= len;
     }
     
     public static Vector operator +(Vector v1, Vector v2)

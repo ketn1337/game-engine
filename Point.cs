@@ -1,4 +1,4 @@
-﻿namespace tasks;
+﻿namespace engine;
 
 public class Point
 {
@@ -10,17 +10,17 @@ public class Point
         _c3 = c3;
     }
     public (double, double, double) Coord { get => (_c1, _c2, _c3); }
-    public static void test()
+    /*public static void test()
     {
         Func<Point, Point, double>[] function = {Distance};
         Console.WriteLine(function[0](new Point(1, 1, 1), new Point(2, 2, 2)));
-    }
-    public static double Distance(Point pt1, Point pt2)
+    }*/
+    public double Distance(Point pt)
     {
         return Math.Sqrt(
-            Math.Pow(Math.Abs(pt1._c1 - pt2._c1), 2) + 
-            Math.Pow(Math.Abs(pt1._c2 - pt2._c2), 2) + 
-            Math.Pow(Math.Abs(pt1._c3 - pt2._c3), 2));
+            Math.Pow(Math.Abs(_c1 - pt._c1), 2) + 
+            Math.Pow(Math.Abs(_c2 - pt._c2), 2) + 
+            Math.Pow(Math.Abs(_c3 - pt._c3), 2));
     }
 
     public static Point operator +(Point pt1, Point pt2)
