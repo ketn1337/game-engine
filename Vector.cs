@@ -11,7 +11,7 @@ public class Vector
     }
     public Vector(Point pt)
     {
-        (_c1, _c2, _c3) = pt.Coord;
+        (_c1, _c2, _c3) = pt;
     }
 
     public double Length { get => Math.Sqrt(
@@ -31,8 +31,8 @@ public class Vector
     {
         return new Vector(v1._c1 + v2._c1, v1._c2 + v2._c2, v1._c3 + v2._c3);
     }
-
-    public static Vector operator *(Vector v1, Vector v2)
+    
+    public static Vector operator ^(Vector v1, Vector v2)
     {
         return new Vector(v1._c2 * v2._c3 - v1._c3 * v2._c2, -v1._c1 * v2._c3 + v1._c3 * v2._c1, v1._c1 * v2._c2 - v1._c2 * v2._c1);
     }
@@ -57,7 +57,7 @@ public class Vector
         return new Vector(v._c1 / num,  v._c2 / num, v._c3 / num);
     }
 
-    public static double operator ^(Vector v1, Vector v2)
+    public static double operator *(Vector v1, Vector v2)
     {
         return v1._c1 * v2._c1 + v1._c2 * v2._c2 + v1._c3 * v2._c3;
     }

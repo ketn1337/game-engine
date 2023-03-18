@@ -43,4 +43,28 @@ Console.Write("Length of normal vector {1, 1, 1} test. If u see 1 than its ok: "
 vec1.Norm();
 Console.WriteLine(vec1.Length);
 
-// тесты для перегрузок и Lenght через Distance
+var list1 = new List<float>{4f, 5f};
+var list2 = new List<float>{1f, 2f};
+var data = new List<List<float>>{new List<float> {3, 4}, list2};
+Console.WriteLine(data[0][0] + " " + data[0][1] + " " + data[1][0] + " " + data[1][1]);
+var matrix = new Matrix(2, 2, data);
+matrix.Print();
+
+var n = 2;
+var m = 2;
+var m1 = new Matrix(n, m);
+var m2 = new Matrix(n, m);
+for (int i = 0; i < n; i++)
+{
+    for (int j = 0; j < m; j++)
+    {
+        m1[i, j] = 1;
+        m2[i, j] = 1;
+    }
+}
+var res = new Matrix(n, m);
+/*res = m1 + m2;
+res.Print();
+res = res - m1;
+res.Print();*/
+Matrix.Print(m1 * m2);

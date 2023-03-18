@@ -9,7 +9,13 @@ public class Point
         _c2 = c2;
         _c3 = c3;
     }
-    public (double, double, double) Coord { get => (_c1, _c2, _c3); }
+    public void Deconstruct(out double c1, out double c2, out double c3)
+    {
+        c1 = _c1;
+        c2 = _c2;
+        c3 = _c3;
+    }
+    //public (double, double, double) Coord { get => (_c1, _c2, _c3); }
     /*public static void test()
     {
         Func<Point, Point, double>[] function = {Distance};
