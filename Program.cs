@@ -48,7 +48,6 @@ var list2 = new List<float>{1f, 2f};
 var data = new List<List<float>>{new List<float> {3, 4}, list2};
 Console.WriteLine(data[0][0] + " " + data[0][1] + " " + data[1][0] + " " + data[1][1]);
 var matrix = new Matrix(2, 2, data);
-matrix.Print();
 
 var n = 2;
 var m = 2;
@@ -67,4 +66,5 @@ var res = new Matrix(n, m);
 res.Print();
 res = res - m1;
 res.Print();*/
-Matrix.Print(m1 * m2);
+res = m1 * m2;
+Console.Write(res.ToString());
