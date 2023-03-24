@@ -1,69 +1,63 @@
-﻿namespace engine;
+﻿using System.Data;
+using System.Numerics;
+using System.Runtime.Intrinsics;
 
-public class Vector
+namespace engine;
+
+public class Vector : Matrix
 {
-    private double _c1, _c2, _c3;
-    public Vector(double c1, double c2, double c3)
+    private readonly int _n;
+
+    public int Count => _n;
+    
+    public Vector(int n) : base(n, 1)
     {
-        _c1 = c1;
-        _c2 = c2;
-        _c3 = c3;
+        _n = n;
     }
-    public Vector(Point pt)
+    
+    public Vector(int n, params float[] args) : base(n, 1)
     {
-        (_c1, _c2, _c3) = pt;
+        _n = n;
+        for (var i = 0; i < args.Length; i++)
+        {
+            Data[i][0] = args[i];
+        }
     }
 
-    public double Length { get => Math.Sqrt(
-        Math.Pow(_c1, 2) +
-        Math.Pow(_c2, 2) +
-        Math.Pow(_c3, 2)); }
-    
-    public void Norm()
+    public float ScalarProduct(Vector v)
     {
-        var len = Length;
-        _c1 /= len;
-        _c2 /= len;
-        _c3 /= len;
+        if (_n != v._n)
+            throw new Exception("Vectors are different size");
+
+        var res = 0f;
+        for (var i = 0; i < _n; i++)
+        {
+            res += this[_n, 0] * v[_n, 0];
+        }
+
+        return res;
     }
-    
-    public static Vector operator +(Vector v1, Vector v2)
+
+    public Vector VectorProduct(Vector v)
     {
-        return new Vector(v1._c1 + v2._c1, v1._c2 + v2._c2, v1._c3 + v2._c3);
+        if (_n != 3 && v._n != 3)
+            throw new Exception("Size of Vectors is not 3");
+        
+        return new Vector(3, this[1, 0] * v[2, 0] - this[2, 0] * v[1, 0], -this[0, 0] * v[2, 0] + this[2, 0] * v[0, 0], this[0, 0] * v[1, 0] - this[1, 0] * v[0, 0]);
     }
-    
+
+    public float Length()
+    {
+        return (float) Math.Sqrt(ScalarProduct(this));
+    }
+
+    public static float operator %(Vector v1, Vector v2)
+    {
+        return v1.ScalarProduct(v2);
+    }
+
     public static Vector operator ^(Vector v1, Vector v2)
     {
-        return new Vector(v1._c2 * v2._c3 - v1._c3 * v2._c2, -v1._c1 * v2._c3 + v1._c3 * v2._c1, v1._c1 * v2._c2 - v1._c2 * v2._c1);
-    }
-    
-    public static Vector operator *(Vector v, double num)
-    {
-        return new Vector(v._c1 * num,  v._c2 * num, v._c3 * num);
-    }
-    
-    public static Vector operator *(double num, Vector v)
-    {
-        return new Vector(v._c1 * num,  v._c2 * num, v._c3 * num);
-    }
-    
-    public static Vector operator -(Vector v1, Vector v2)
-    {
-        return new Vector(v1._c1 - v2._c1,  v1._c2 - v2._c2, v1._c3 - v2._c3);
-    }
-    
-    public static Vector operator /(Vector v, double num)
-    {
-        return new Vector(v._c1 / num,  v._c2 / num, v._c3 / num);
-    }
-
-    public static double operator *(Vector v1, Vector v2)
-    {
-        return v1._c1 * v2._c1 + v1._c2 * v2._c2 + v1._c3 * v2._c3;
-    }
-
-    public void Print()
-    {
-        Console.WriteLine(_c1 + " " + _c2 + " " + _c3);
+        return v1.VectorProduct(v2);
     }
 }
