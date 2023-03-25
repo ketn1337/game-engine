@@ -32,7 +32,7 @@ public class Vector : Matrix
         var res = 0f;
         for (var i = 0; i < _n; i++)
         {
-            res += this[_n, 0] * v[_n, 0];
+            res += this[i, 0] * v[i, 0];
         }
 
         return res;

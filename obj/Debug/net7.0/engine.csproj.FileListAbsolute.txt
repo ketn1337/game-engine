@@ -1,0 +1,15 @@
+C:\Users\Huawei1\RiderProjects\oop\engine\bin\Debug\net7.0\engine.exe
+C:\Users\Huawei1\RiderProjects\oop\engine\bin\Debug\net7.0\engine.deps.json
+C:\Users\Huawei1\RiderProjects\oop\engine\bin\Debug\net7.0\engine.runtimeconfig.json
+C:\Users\Huawei1\RiderProjects\oop\engine\bin\Debug\net7.0\engine.dll
+C:\Users\Huawei1\RiderProjects\oop\engine\bin\Debug\net7.0\engine.pdb
+C:\Users\Huawei1\RiderProjects\oop\engine\obj\Debug\net7.0\engine.csproj.AssemblyReference.cache
+C:\Users\Huawei1\RiderProjects\oop\engine\obj\Debug\net7.0\engine.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Huawei1\RiderProjects\oop\engine\obj\Debug\net7.0\engine.AssemblyInfoInputs.cache
+C:\Users\Huawei1\RiderProjects\oop\engine\obj\Debug\net7.0\engine.AssemblyInfo.cs
+C:\Users\Huawei1\RiderProjects\oop\engine\obj\Debug\net7.0\engine.csproj.CoreCompileInputs.cache
+C:\Users\Huawei1\RiderProjects\oop\engine\obj\Debug\net7.0\engine.dll
+C:\Users\Huawei1\RiderProjects\oop\engine\obj\Debug\net7.0\refint\engine.dll
+C:\Users\Huawei1\RiderProjects\oop\engine\obj\Debug\net7.0\engine.pdb
+C:\Users\Huawei1\RiderProjects\oop\engine\obj\Debug\net7.0\engine.genruntimeconfig.cache
+C:\Users\Huawei1\RiderProjects\oop\engine\obj\Debug\net7.0\ref\engine.dll
