@@ -1,36 +1,33 @@
-﻿using System.Data;
-using System.Numerics;
-using System.Runtime.Intrinsics;
-
-namespace engine;
+﻿namespace engine;
 
 public class Vector : Matrix
 {
-    private readonly int _n;
-
-    public int Count => _n;
-    
-    public Vector(int n) : base(n, 1)
+    public int Count
     {
-        _n = n;
-    }
-    
-    public Vector(int n, params float[] args) : base(n, 1)
-    {
-        _n = n;
-        for (var i = 0; i < args.Length; i++)
+        get
         {
-            Data[i][0] = args[i];
+            var (n, _) = Size;
+            return n;
         }
     }
 
+    public Vector(int n) : base(n, 1)
+    {
+    }
+    
+    public Vector(float[] values) : base(values.Length, 1, new List<List<float>> { values.ToList() })
+    {
+    }
+    
+    //todo vectors peregruzki
+
     public float ScalarProduct(Vector v)
     {
-        if (_n != v._n)
+        if (Count != v.Count)
             throw new Exception("Vectors are different size");
-
+        //todo bilinearform
         var res = 0f;
-        for (var i = 0; i < _n; i++)
+        for (var i = 0; i < Count; i++)
         {
             res += this[i, 0] * v[i, 0];
         }
@@ -40,10 +37,15 @@ public class Vector : Matrix
 
     public Vector VectorProduct(Vector v)
     {
-        if (_n != 3 && v._n != 3)
+        if (Count != 3 && v.Count != 3)
             throw new Exception("Size of Vectors is not 3");
-        
-        return new Vector(3, this[1, 0] * v[2, 0] - this[2, 0] * v[1, 0], -this[0, 0] * v[2, 0] + this[2, 0] * v[0, 0], this[0, 0] * v[1, 0] - this[1, 0] * v[0, 0]);
+
+        return new Vector(new[]
+        {
+            this[1, 0] * v[2, 0] - this[2, 0] * v[1, 0],
+            -this[0, 0] * v[2, 0] + this[2, 0] * v[0, 0],
+            this[0, 0] * v[1, 0] - this[1, 0] * v[0, 0]
+        });
     }
 
     public float Length()

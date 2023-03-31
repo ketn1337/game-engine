@@ -1,10 +1,9 @@
-﻿using System.Numerics;
-
+﻿
 namespace engine;
 
 public class VectorSpace
 {
-    private readonly List<Vector> _data = new List<Vector>();
+    private readonly List<Vector> _data = new();
 
     public VectorSpace(List<Vector> data)
     {
@@ -28,6 +27,7 @@ public class VectorSpace
         {
             res += pt[i, 0] * _data[i];
         }
+        //todo return type Vector
 
         return res;
     }

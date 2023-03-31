@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "G1A4/rS1HrwgufHMbbkTJ8eoqmW3XMQSwzwhP2xAJmxac1q/XdWryNwJrR6+dxcYC2VJyjwUpJjnMAdQLE4esg==",
+  "dgSpecHash": "icNWxM4ckBd7cSLp1vHcPJahLvv/FYslImkiT7iWp9NogouIUyC/cLGHFoZjV7GW0WniNy0qBSQyYyyJ2CMWqw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Huawei1\\RiderProjects\\oop\\engine\\engine.csproj",
+  "projectFilePath": "C:\\Users\\Huawei1\\RiderProjects\\oop\\GraphicsEngine\\GraphicsEngine.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
