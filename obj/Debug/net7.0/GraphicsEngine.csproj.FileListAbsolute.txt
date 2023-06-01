@@ -1,0 +1,15 @@
+C:\Users\Huawei1\RiderProjects\oop\GraphicsEngine\bin\Debug\net7.0\GraphicsEngine.exe
+C:\Users\Huawei1\RiderProjects\oop\GraphicsEngine\bin\Debug\net7.0\GraphicsEngine.deps.json
+C:\Users\Huawei1\RiderProjects\oop\GraphicsEngine\bin\Debug\net7.0\GraphicsEngine.runtimeconfig.json
+C:\Users\Huawei1\RiderProjects\oop\GraphicsEngine\bin\Debug\net7.0\GraphicsEngine.dll
+C:\Users\Huawei1\RiderProjects\oop\GraphicsEngine\bin\Debug\net7.0\GraphicsEngine.pdb
+C:\Users\Huawei1\RiderProjects\oop\GraphicsEngine\obj\Debug\net7.0\GraphicsEngine.csproj.AssemblyReference.cache
+C:\Users\Huawei1\RiderProjects\oop\GraphicsEngine\obj\Debug\net7.0\GraphicsEngine.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Huawei1\RiderProjects\oop\GraphicsEngine\obj\Debug\net7.0\GraphicsEngine.AssemblyInfoInputs.cache
+C:\Users\Huawei1\RiderProjects\oop\GraphicsEngine\obj\Debug\net7.0\GraphicsEngine.AssemblyInfo.cs
+C:\Users\Huawei1\RiderProjects\oop\GraphicsEngine\obj\Debug\net7.0\GraphicsEngine.csproj.CoreCompileInputs.cache
+C:\Users\Huawei1\RiderProjects\oop\GraphicsEngine\obj\Debug\net7.0\GraphicsEngine.dll
+C:\Users\Huawei1\RiderProjects\oop\GraphicsEngine\obj\Debug\net7.0\refint\GraphicsEngine.dll
+C:\Users\Huawei1\RiderProjects\oop\GraphicsEngine\obj\Debug\net7.0\GraphicsEngine.pdb
+C:\Users\Huawei1\RiderProjects\oop\GraphicsEngine\obj\Debug\net7.0\GraphicsEngine.genruntimeconfig.cache
+C:\Users\Huawei1\RiderProjects\oop\GraphicsEngine\obj\Debug\net7.0\ref\GraphicsEngine.dll
