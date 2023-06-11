@@ -1,7 +1,7 @@
 ﻿using Engine;
 using GraphicsMath;
 
-var data = new List<List<float>> { new() { 3f, 4f }, new() { 1f, 2f } };
+/*var data = new List<List<float>> { new() { 3f, 4f }, new() { 1f, 2f } };
 var matrix = new Matrix(2, 2, data);
 Console.WriteLine(matrix);
 
@@ -52,25 +52,64 @@ var id1 = new Identifier();
 Console.WriteLine(id1.Id);
 var id2 = new Identifier();
 Console.WriteLine(id2.Id);
-Console.WriteLine(id2.ToString());
+var basis = new VectorSpace(3, new List<Vector>
+{
+    new(new float[] { 1, 0, 0 }),
+    new(new float[] { 0, 1, 0 }),
+    new(new float[] { 0, 0, 1 })
+});*/
+
+/*var cs2 = new CoordinateSystem(new Point(new float[] { 0, 0, 0 }), new VectorSpace(3, new List<Vector>
+{
+    new (new float[] { 1, 0, 0 }),
+    new (new float[] { 0, 1, 0 }),
+    new (new float[] { 0, 0, 1 })
+}));
+var e1 = new Entity(cs2)
+{
+    ["s"] = "xuinya",
+    ["a"] = new Point(new float[] { 1, 0, 0 })
+};
+var e2 = new Entity(cs2);
+Console.WriteLine(e1["s"]);
+Console.WriteLine(e1["a"]);
+e1.RemoveProp("s");
+e1["s"] = 234;
+Console.WriteLine(e1["s"]);
+Console.WriteLine(e1.Id);
+var set1 = new HashSet<string> {"2", "2", "3"};
+var set2 = new HashSet<string> {"2", "3"};
+Console.WriteLine(set1.Equals(set2));
+e1.RemoveProp("s");
+Console.WriteLine(e1.IdSet);
 var cs = new CoordinateSystem(new Point(new float[] { 0, 0, 0 }), new VectorSpace(3, new List<Vector>
 {
     new (new float[] { 1, 0, 0 }),
     new (new float[] { 0, 1, 0 }),
     new (new float[] { 0, 0, 1 })
 }));
-var e = new Entity(cs)
+var e = new Entity(cs);
+var pt = new Point(3);
+var dir = new Vector(new float[] { 0, 1, 0 });
+var expected = new Vector(new float[] { 0, 0, -1 });
+Console.WriteLine(basis.Normalize(new Vector (new [] { 10f, 2f, 1f })).Length());*/
+//var el3 = new HyperEllipsoid(game, new Point(new float[] { 5, 2, -4 }), 
+//    new Vector(new float[] { 1, -1, 0 }), 
+//    new List<float> { 2, 2, 4});
+var cs = new CoordinateSystem(new Point(new float[] { 0, 0, 0 }), 
+    new VectorSpace(3, new List<Vector>
 {
-    ["s"] = "xuinya",
-    ["a"] = new Point(new float[] { 1, 0, 0 })
-};
-Console.WriteLine(e["s"]);
-Console.WriteLine(e["a"]);
-e.RemoveProp("s");
-e["s"] = 234;
-Console.WriteLine(e["s"]);
-foreach (var item in Identifier.Identifiers)
-{
-    Console.WriteLine(item);
-}
-Console.WriteLine(e.Id);
+    new (new float[] { 1, 0, 0 }),
+    new (new float[] { 0, 1, 0 }),
+    new (new float[] { 0, 0, 1 })
+}));
+Game game = new Game(cs, new GameObjectsList(new List<GameObject>()));
+
+var el1 = new HyperEllipsoid(game, new Point(new float[] { 5, 0, 0 }), 
+    new Vector(new float[] { 1, -1, 0 }), 
+    new List<float> { 2, 2, 1});
+var el2 = new HyperEllipsoid(game, new Point(new float[] { 5, 4.1f, 0 }), 
+    new Vector(new float[] { 1, -1, 0 }), 
+    new List<float> { 2, 2, 1});
+
+game.Run();

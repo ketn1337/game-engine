@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using EngineExceptions;
 
 namespace GraphicsMath;
 
@@ -98,10 +99,11 @@ public class Vector
 
     public static Vector MultiplicationByScalar(Vector v, float scalar)
     {
+        var res = new Vector(v.Count);
         for (var i = 0; i < v.Count; i++)
-            v[i] *= scalar;
+            res[i] = v[i] * scalar;
 
-        return v;
+        return res;
     }
 
     public static float operator %(Vector v1, Vector v2) => v1.ScalarProduct(v2);

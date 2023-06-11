@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using EngineExceptions;
 
 namespace GraphicsMath;
 
@@ -145,32 +146,32 @@ public class Matrix
         return cofactorMatrix.Transpose() / (float) this.Determinant();
     }
 
-    public static Matrix GetRotationMatrix(int dim, int[] axes, float angle)
+    public static Matrix GetRotationMatrix(int dim, (int, int) axes, float angle)
     {
-        if (axes[0] >= dim || axes[1] >= dim)
+        if (axes.Item1 >= dim || axes.Item2 >= dim)
             throw new EngineException.OutOfObjectException(); // ?
         
         angle *= ((float) System.Math.PI / 180);
         
         var rotationMatrix = Identity(dim);
-        rotationMatrix[axes[0], axes[0]] = (float) System.Math.Cos(angle);
-        rotationMatrix[axes[1], axes[1]] = (float) System.Math.Cos(angle);
-        rotationMatrix[axes[1], axes[0]] = (float) -(System.Math.Pow(-1, axes[0] + axes[1]) * System.Math.Sin(angle));
-        rotationMatrix[axes[0], axes[1]] = (float) (System.Math.Pow(-1, axes[0] + axes[1]) * System.Math.Sin(angle));
+        rotationMatrix[axes.Item1, axes.Item1] = (float) System.Math.Cos(angle);
+        rotationMatrix[axes.Item2, axes.Item2] = (float) System.Math.Cos(angle);
+        rotationMatrix[axes.Item2, axes.Item1] = (float) -(System.Math.Pow(-1, axes.Item1 + axes.Item2) * System.Math.Sin(angle));
+        rotationMatrix[axes.Item1, axes.Item2] = (float) (System.Math.Pow(-1, axes.Item1 + axes.Item2) * System.Math.Sin(angle));
         
         return rotationMatrix;
     }
 
     public static Matrix GetRotationMatrix_X(float angle) => 
-        GetRotationMatrix(3, new[] { 1, 2 }, angle);
+        GetRotationMatrix(3, ( 1, 2 ), angle);
     
     public static Matrix GetRotationMatrix_Y(float angle) => 
-        GetRotationMatrix(3, new[] { 0, 2 }, angle);
+        GetRotationMatrix(3, ( 0, 2 ), angle);
     
     public static Matrix GetRotationMatrix_Z(float angle) => 
-        GetRotationMatrix(3, new[] { 0, 1 }, angle);
+        GetRotationMatrix(3, ( 0, 1 ), angle);
 
-    public static Matrix Rotate(float x, float y, float z) =>
+    public static Matrix Rotate3D(float x, float y, float z) =>
         GetRotationMatrix_X(x) * GetRotationMatrix_Y(y) * GetRotationMatrix_Z(z);
 
     public float BilinearForm(Vector v1, Vector v2)

@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Huawei1\\RiderProjects\\oop\\GraphicsEngine\\GraphicsEngine.csproj",
-      "projectName": "GraphicsEngine",
-      "projectPath": "C:\\Users\\Huawei1\\RiderProjects\\oop\\GraphicsEngine\\GraphicsEngine.csproj",
+      "projectUniqueName": "C:\\Users\\Huawei1\\RiderProjects\\oop\\lib\\lib.csproj",
+      "projectName": "lib",
+      "projectPath": "C:\\Users\\Huawei1\\RiderProjects\\oop\\lib\\lib.csproj",
       "packagesPath": "C:\\Users\\Huawei1\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Huawei1\\RiderProjects\\oop\\GraphicsEngine\\obj\\",
+      "outputPath": "C:\\Users\\Huawei1\\RiderProjects\\oop\\lib\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Huawei1\\AppData\\Roaming\\NuGet\\NuGet.Config"

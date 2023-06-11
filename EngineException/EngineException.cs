@@ -1,4 +1,4 @@
-﻿namespace GraphicsMath;
+﻿namespace EngineExceptions;
 
 public abstract class EngineException
 {
@@ -25,5 +25,10 @@ public abstract class EngineException
     public class ObjectNotIncludeItem : ApplicationException
     {
         public ObjectNotIncludeItem() : base("Object isn't include this item") { }
+    }
+    
+    public class BasisContainsLinearlyDependentVectors : ApplicationException
+    {
+        public BasisContainsLinearlyDependentVectors() : base("Basis contains linearly dependent vectors") { }
     }
 }

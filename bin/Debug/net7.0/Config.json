@@ -1,0 +1,8 @@
+﻿{
+  "HorizontalBlocks": 60,
+  "VerticalBlocks": 30,
+  "HorizontalFoV": 90,
+  "VerticalFoV" :  60,
+  "DrawDist": 15,
+  "FPS" :  20
+}

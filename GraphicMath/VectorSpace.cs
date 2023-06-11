@@ -1,19 +1,26 @@
-﻿namespace GraphicsMath;
+﻿using EngineExceptions;
+
+namespace GraphicsMath;
 
 public class VectorSpace
 {
-    private readonly List<Vector> _basis = new();
+    private readonly List<Vector> _basis;
     private readonly int _dimOfVectors;
 
     public VectorSpace(int dimOfVectors, List<Vector> data)
     {
-        if (data.Any(vector => vector.Count != dimOfVectors))
+        if (data.Any(vector => vector.Count != dimOfVectors) || dimOfVectors != data.Count)
             throw new EngineException.ObjectDimensionException();
+
+        var matrix = new Matrix(data.Count, data.Count);
+        for (var i = 0; i < data.Count; i++)
+            matrix[i] = data[i];
+        if (matrix.Determinant() == 0f)
+            throw new EngineException.BasisContainsLinearlyDependentVectors();
         
         _dimOfVectors = dimOfVectors;
 
-        foreach (var item in data)
-            _basis.Add(item);
+        _basis = data;
     }
 
     public int Count => _basis.Count;
@@ -71,12 +78,17 @@ public class VectorSpace
             throw new EngineException.ObjectDimensionException();
         
         var res = new Vector(_basis.Count);
+        
         for (var i = 0; i < _basis.Count; i++)
-            res += pt[i] * _basis[i];
+            res += _basis[i] * pt[i];
         
         return res;
     }
+
+    public float Length(Vector vec) => (float)Math.Sqrt(ScalarProduct(vec, vec));
     
+    public Vector Normalize(Vector vector) => vector / Length(vector);
+
     public override bool Equals(Object? obj)
     {
         if (obj == null)

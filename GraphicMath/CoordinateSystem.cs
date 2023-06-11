@@ -1,4 +1,6 @@
-﻿namespace GraphicsMath;
+﻿using EngineExceptions;
+
+namespace GraphicsMath;
 
 public class CoordinateSystem
 {
